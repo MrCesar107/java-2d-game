@@ -4,8 +4,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class Keyboard implements KeyListener {
-    private final static int numberOfKeys = 120;
-    private final boolean[] keys = new boolean[numberOfKeys];
+    private final static int NUMBER_OF_KEYS = 256;
+    private final boolean[] keys = new boolean[NUMBER_OF_KEYS];
 
     public boolean up, down, left, right, run, exit;
 

@@ -33,7 +33,7 @@ public class MainGestor {
 
     private void init() {
         canvas = new CanvasGame();
-        window = new WindowGame();
+        window = new WindowGame(title, canvas);
         statesController = new StatesController();
         initGameProcess();
     }
