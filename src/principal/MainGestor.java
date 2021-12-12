@@ -81,10 +81,10 @@ public class MainGestor {
     }
 
     private void update() {
-
+        statesController.update();
     }
 
     private void draw() {
-
+//        statesController.draw();
     }
 }
