@@ -5,6 +5,8 @@ import principal.graphics.CanvasGame;
 import principal.graphics.WindowGame;
 import principal.statesmachine.StatesController;
 
+import java.awt.*;
+
 public class MainGestor {
     private boolean isRunning = false;
     private String title;
@@ -32,7 +34,7 @@ public class MainGestor {
     }
 
     private void init() {
-        canvas = new CanvasGame();
+        canvas = new CanvasGame(width, height);
         window = new WindowGame(title, canvas);
         statesController = new StatesController();
         initGameProcess();
@@ -81,10 +83,11 @@ public class MainGestor {
     }
 
     private void update() {
+        canvas.getKeyboard().update();
         statesController.update();
     }
 
     private void draw() {
-//        statesController.draw();
+        canvas.draw(statesController);
     }
 }

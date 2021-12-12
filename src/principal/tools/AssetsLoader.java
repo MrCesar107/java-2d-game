@@ -37,7 +37,7 @@ public class AssetsLoader {
                                                                       image.getHeight(null),
                                                                       Transparency.TRANSLUCENT);
 
-        Graphics g = acceleratedImage.getGraphics();
+        Graphics2D g = (Graphics2D) acceleratedImage.getGraphics();
         g.drawImage(image, 0, 0, null);
         g.dispose();
 
