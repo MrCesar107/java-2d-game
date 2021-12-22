@@ -3,7 +3,10 @@ package principal.tools;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 public class AssetsLoader {
     public static BufferedImage loadCompatibleOpaqueImage(final String path) throws IOException {
@@ -42,5 +45,37 @@ public class AssetsLoader {
         g.dispose();
 
         return acceleratedImage;
+    }
+
+    public static String readTextFile(final String path) {
+        String content = "";
+
+        InputStream inputBytes = ClassLoader.class.getResourceAsStream(path);
+        System.out.println(inputBytes);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(inputBytes));
+
+        String line;
+
+        try {
+            while((line = reader.readLine()) != null){
+                content += line;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (inputBytes != null) {
+                    inputBytes.close();
+                }
+
+                if (reader != null) {
+                    reader.close();
+                }
+            } catch(IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+
+        return content;
     }
 }

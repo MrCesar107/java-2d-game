@@ -3,17 +3,18 @@ package principal.statesmachine;
 import principal.statesmachine.states.game.GameController;
 
 import java.awt.*;
+import java.io.IOException;
 
 public class StatesController {
     private GameState[] states;
     private GameState currentState;
 
-    public StatesController() {
+    public StatesController() throws IOException {
         initStates();
         initCurrentState();
     }
 
-    private void initStates() {
+    private void initStates() throws IOException {
         states = new GameState[1];
         states[0] = new GameController();
         // Add and initialize new states when create them

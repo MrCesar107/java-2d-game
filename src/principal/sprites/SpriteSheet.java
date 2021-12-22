@@ -73,6 +73,6 @@ public class SpriteSheet {
     }
 
     public Sprite getSprite(final int x, final int y) {
-        return sprites[x + y * this.spriteWidth];
+        return sprites[x + y * sheetWidthInSprites];
     }
 }

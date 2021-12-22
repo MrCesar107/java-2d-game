@@ -6,6 +6,7 @@ import principal.graphics.WindowGame;
 import principal.statesmachine.StatesController;
 
 import java.awt.*;
+import java.io.IOException;
 
 public class MainGestor {
     private boolean isRunning = false;
@@ -23,17 +24,17 @@ public class MainGestor {
         this.title = title;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         MainGestor principal = new MainGestor(640, 360, "Java game");
         principal.initGame();
     }
 
-    private void initGame() {
+    private void initGame() throws IOException {
         isRunning = true;
         init();
     }
 
-    private void init() {
+    private void init() throws IOException {
         canvas = new CanvasGame(width, height);
         window = new WindowGame(title, canvas);
         statesController = new StatesController();
